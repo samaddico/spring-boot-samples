@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+        <link type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet"/>
+    </head>
+    <body class="body">
+        <div class="container">
+            <div class="row" style="">
+                <div class="col-sm">
+                    <div style="width: 30%;margin-left: 35%;margin-top: 100px;">
+                        <h2>Login</h2>
+                        <div th:if="${param.error}">
+                            <span style="color:#ff3548;">Invalid username or password.</span>
+                        </div>
+                        <form method="POST" action="/login" id="siginForm">
+                            <div role="group" class="input-group mb-3">
+                                <input class="form-control" type="text" name="username" id="username" autocomplete="off" placeholder="Enter Username" data-error="" autofocus="true" required="true"/>
+                            </div>
+                            <div role="group" class="input-group mb-3">
+                                <input class="form-control" type="password" name="password" id="password" autocomplete="off" placeholder="Enter Password" data-error="" required="true"/>
+                            </div>
+                            <div role="group" class="input-group mb-3">
+                                <input class="btn btn-info" id="submit" type="submit" value="Login"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

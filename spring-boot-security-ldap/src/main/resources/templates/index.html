@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="description" content=""/>
+        <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet"/>
+        <title>Home</title>
+    </head>
+    <body class="body">
+        <div class="container">
+            <h2 class="">Welcome to Home <span th:text="${#authentication.getPrincipal().getUsername()}"></span></h2>
+            <a href="/logout">Logout</a>
+        </div>
+        <footer class="footer">
+        </footer>
+    </body> 
+</html>

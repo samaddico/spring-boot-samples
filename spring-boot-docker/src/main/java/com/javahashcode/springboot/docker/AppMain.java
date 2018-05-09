@@ -1,0 +1,24 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package com.javahashcode.springboot.docker;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+/**
+ *
+ * @author addico
+ */
+@SpringBootApplication
+public class AppMain {
+    
+    public static void main(String[] args) {
+        ApplicationContext context = SpringApplication.run(AppMain.class, args);
+    }
+    
+}

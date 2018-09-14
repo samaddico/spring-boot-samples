@@ -1,2 +1,5 @@
 /target/**
 **/target/**
+spring-boot-sample-data-mongo-rest/.idea/*
+**/build/**
+**/out/**

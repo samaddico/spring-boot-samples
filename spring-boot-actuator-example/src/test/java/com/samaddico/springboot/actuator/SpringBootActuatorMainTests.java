@@ -1,4 +1,4 @@
-package com.javahashcode.springbootactuatorexample;
+package com.samaddico.springboot.actuator;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpringBootActuatorExampleApplicationTests {
+public class SpringBootActuatorMainTests {
 
 	@Test
 	public void contextLoads() {

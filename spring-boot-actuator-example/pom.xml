@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.javahashcode</groupId>
+	<groupId>com.samaddico</groupId>
 	<artifactId>spring-boot-actuator-example</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>spring-boot-actuator-example</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Demo project for Spring Boot Actuator</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

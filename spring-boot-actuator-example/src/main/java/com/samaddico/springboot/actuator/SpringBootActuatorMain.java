@@ -1,12 +1,12 @@
-package com.javahashcode.springbootactuatorexample;
+package com.samaddico.springboot.actuator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootActuatorExampleApplication {
+public class SpringBootActuatorMain {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootActuatorExampleApplication.class, args);
+		SpringApplication.run(SpringBootActuatorMain.class, args);
 	}
 }

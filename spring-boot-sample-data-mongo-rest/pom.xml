@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     
     <description>Spring Boot Data REST Sample</description>
-    <groupId>com.javahashcode</groupId>
+    <groupId>com.samaddico</groupId>
     <artifactId>spring-boot-rest-example</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>

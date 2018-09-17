@@ -27,7 +27,7 @@
       <file leaf-file-name="StudentControllerIT.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/samaddico/springboot/data/rest/controller/StudentControllerIT.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
+            <state relative-caret-position="643">
               <caret line="68" column="56" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="56" />
             </state>
           </provider>
@@ -89,7 +89,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1920" />
     <option name="height" value="988" />
@@ -261,15 +261,16 @@
       <option name="presentableId" value="Default" />
       <updated>1536920617435</updated>
       <workItem from="1536920618601" duration="572000" />
-      <workItem from="1536923365183" duration="843000" />
+      <workItem from="1536923365183" duration="941000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1415000" />
+    <option name="totallyTimeSpent" value="1513000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="988" extended-state="1" />
+    <frame x="0" y="23" width="1920" height="988" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -349,7 +350,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/samaddico/springboot/data/rest/controller/StudentControllerIT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
+        <state relative-caret-position="643">
           <caret line="68" column="56" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="56" />
         </state>
       </provider>

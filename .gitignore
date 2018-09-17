@@ -3,3 +3,4 @@
 spring-boot-sample-data-mongo-rest/.idea/*
 **/build/**
 **/out/**
+spring-boot-sample-data-mongo-rest/.idea/workspace.xml

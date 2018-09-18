@@ -4,3 +4,6 @@
 **/build/**
 **/out/**
 **/.idea/
+spring-boot-actuator-example/.idea/**
+spring-boot-docker/.idea/**
+spring-boot-gradle-jacoco/.idea/**

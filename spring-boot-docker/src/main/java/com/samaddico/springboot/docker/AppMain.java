@@ -14,11 +14,10 @@ import org.springframework.context.ApplicationContext;
  *
  * @author addico
  */
+
 @SpringBootApplication
 public class AppMain {
-    
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(AppMain.class, args);
     }
-    
 }

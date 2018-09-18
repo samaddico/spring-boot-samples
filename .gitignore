@@ -1,6 +1,6 @@
 /target/**
 **/target/**
-spring-boot-sample-data-mongo-rest/.idea/*
+**/.idea/**
 **/build/**
 **/out/**
-spring-boot-sample-data-mongo-rest/.idea/workspace.xml
+**/.idea/

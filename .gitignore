@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Compiled class file
 *.class
 
@@ -48,14 +49,23 @@ buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 .DS_Store
+=======
+/target/**
+>>>>>>> c4ab9a01cf36e23430ca302e61d8bbd30a2397c7
 **/target/**
 **/.idea/**
 **/build/**
 **/out/**
 **/.idea/
+<<<<<<< HEAD
 *.iml
 *.iws
 *.ipr
 
 
 
+=======
+spring-boot-actuator-example/.idea/**
+spring-boot-docker/.idea/**
+spring-boot-gradle-jacoco/.idea/**
+>>>>>>> c4ab9a01cf36e23430ca302e61d8bbd30a2397c7

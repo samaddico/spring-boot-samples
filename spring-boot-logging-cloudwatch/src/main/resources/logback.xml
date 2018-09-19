@@ -1,0 +1,28 @@
+<configuration>
+    <property name="patternString" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n%rEx"  />
+    <appender name="cloudwatch" class="io.github.dibog.AwsLogAppender">
+        <awsConfig>
+            <credentials>
+                <accessKeyId>your_aws_access_id</accessKeyId>
+                <secretAccessKey>your_aws_access_key</secretAccessKey>
+            </credentials>
+            <region>us-west-2</region>
+        </awsConfig>
+        <createLogGroup>false</createLogGroup>
+        <queueLength>100</queueLength>
+        <groupName>spring-boot</groupName>
+        <streamName>app-log</streamName>
+        <layout>
+            <pattern>%d{HH:mm:ss.SSS}  %-4relative [%thread] %-5level %logger{10} - %msg%n</pattern>
+        </layout>
+    </appender>
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS}  %-4relative [%thread] %-5level %logger{10} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <root level="info">
+        <appender-ref ref="cloudwatch" />
+        <appender-ref ref="stdout" />
+    </root>
+</configuration>

@@ -1,0 +1,22 @@
+<configuration>
+    <property name="patternString" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n%rEx"  />
+    <appender name="logentries" class="com.rapid7.logback.LogentriesAppender">
+        <Debug>False</Debug>
+        <Region>us</Region>
+        <Token>your_access_token_here</Token>
+        <Ssl>True</Ssl>
+        <facility>USER</facility>
+        <layout>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </layout>
+    </appender>
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS}  %-4relative [%thread] %-5level %logger{10} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <root level="info">
+        <appender-ref ref="stdout" />
+        <appender-ref ref="logentries" />
+    </root>
+</configuration>

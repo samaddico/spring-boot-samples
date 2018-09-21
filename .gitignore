@@ -38,7 +38,7 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 
 target/
-.mvn/wrapper/maven-wrapper.properties
+*/.mvn
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup

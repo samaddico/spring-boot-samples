@@ -57,6 +57,7 @@ buildNumber.properties
 *.iml
 *.iws
 *.ipr
+nbaction.xml
 
 
 

@@ -1,23 +1,27 @@
-image: maven:latest
+image: maven:3.3.9
+
 stages:
 - test
 - code_coverage
 - maven_build
 - docker_build
 - deploy
+
 variables:
   MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
   DOCKER_DRIVER: overlay2
   DOCKER_IMAGE_NAME: registry.gitlab.com/samaddico/spring-boot-maven-jacoc
   APP_PORT: 8080
   APP_NAME: ushop-inventory-app
+  
 cache:
   paths:
   - .m2/repository/
   
 services:
    - docker:dind
-  
+
+#Ensure code is portable by running all tests  
 test:
   stage: test
   script:
@@ -25,7 +29,9 @@ test:
   artifacts:
     paths:
       - target/
-    
+
+
+#check and verify jacoco rule limits    
 code_coverage:
   stage: code_coverage
   script:
@@ -33,14 +39,15 @@ code_coverage:
   artifacts:
     paths:
       - target/
-    
+
+#build and package app    
 maven_build:
   stage: maven_build
   script:
   - mvn install -DskipTests
   artifacts:
     paths:
-      - target/
+      - target/     
     
 # buld docker image 
 docker_build:

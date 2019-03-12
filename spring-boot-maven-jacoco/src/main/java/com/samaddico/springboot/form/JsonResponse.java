@@ -1,7 +1,5 @@
 package com.samaddico.springboot.form;
 
-import lombok.Data;
-
 public class JsonResponse {
 
     public boolean success;

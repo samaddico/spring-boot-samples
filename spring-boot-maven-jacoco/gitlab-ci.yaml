@@ -1,0 +1,70 @@
+image: maven:3.3.9
+
+stages:
+- test
+- code_coverage
+- maven_build
+- docker_build
+- deploy
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+  DOCKER_DRIVER: overlay2
+  DOCKER_IMAGE_NAME: registry.gitlab.com/samaddico/spring-boot-maven-jacoc
+  APP_PORT: 8080
+  APP_NAME: ushop-inventory-app
+  
+cache:
+  paths:
+  - .m2/repository/
+  
+services:
+   - docker:dind
+
+#Ensure code is portable by running all tests  
+test:
+  stage: test
+  script:
+  - mvn clean test
+  artifacts:
+    paths:
+      - target/
+
+
+#check and verify jacoco rule limits    
+code_coverage:
+  stage: code_coverage
+  script:
+  - mvn verify
+  artifacts:
+    paths:
+      - target/
+
+#build and package app    
+maven_build:
+  stage: maven_build
+  script:
+  - mvn install -DskipTests
+  artifacts:
+    paths:
+      - target/     
+    
+# buld docker image 
+docker_build:
+  stage: docker_build
+  image: docker:stable
+  script:
+  - docker build -t $DOCKER_IMAGE_NAME .
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+  - docker tag $DOCKER_IMAGE_NAME $DOCKER_IMAGE_NAME:$CI_COMMIT_SHA
+  - docker push $DOCKER_IMAGE_NAME:$CI_COMMIT_SHA
+  tags:
+    - docker
+  
+#create docker container with ansible script    
+deploy:
+  stage: deploy
+  script:
+    - ansible-playbook -s /home/gitlab-runner/scripts/deploy.yaml --extra-vars "image_tag=$CI_COMMIT_SHA image_name=$DOCKER_IMAGE_NAME name=$APP_NAME port=$APP_PORT:$APP_PORT exposed_port=$APP_PORT"
+  tags:
+    - java

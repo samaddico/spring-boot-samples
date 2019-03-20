@@ -62,8 +62,6 @@ public class OAuthClientControllerTest {
     public void setup() throws Exception{
 
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).addFilter(springSecurityFilterChain).build();
-//        RestAssuredMockMvc.standaloneSetup(mockMvc);
-//        RestAssuredMockMvc.webAppContextSetup(this.wac);
         RestAssuredMockMvc.mockMvc = this.mockMvc;
 
 

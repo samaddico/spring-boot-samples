@@ -29,12 +29,12 @@ public class ItemServiceImpl implements ItemService{
     }
 
     @Override
-    public List<Item> getAllItemsByCategory(String category) {
-        return itemRepository.findItemByCategory(category);
+    public Item getItemsByName(String name) {
+        return itemRepository.findItemByName(name);
     }
 
     @Override
-    public Item getItemsByName(String name) {
-        return itemRepository.findItemByName(name);
+    public void deleteAll() {
+        itemRepository.deleteAll();
     }
 }

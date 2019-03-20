@@ -11,8 +11,4 @@ public interface ItemRepository extends JpaRepository<Item,Long> {
 
     public Item findItemByName(String name);
 
-    public List<Item> findItemByCategory(String category);
-
-    public List<Item> findItemByQuantityIsLessThanEqual(Integer threshold);
-
 }

@@ -1,6 +1,7 @@
 package com.samaddico.springboot.controller;
 
 import com.jayway.restassured.module.mockmvc.RestAssuredMockMvc;
+import com.samaddico.springboot.form.ItemForm;
 import com.samaddico.springboot.model.Item;
 import com.samaddico.springboot.service.ItemService;
 import org.hamcrest.Matchers;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,63 +33,92 @@ public class ItemControllerTest {
     @Before
     public void setup(){
 
-//        itemService.addItem(null);
+        itemService.deleteAll();
+
+        item = new Item();
+        item.setName("Polo Shirt");
+        item.setPrice(new BigDecimal("15.5"));
+        item.setCategory("Fashion");
+        item.setQuantity(3);
+        item = itemService.addItem(item);
 
         RestAssuredMockMvc.standaloneSetup(itemController);
     }
 
     @Test
-    public void whenEmployeeDetailIsParsed_ThenSaveDetail() {
+    public void whenItemIsParsed_ThenSaveItem_AndReturnItem() {
 
-        Map<String, Object> payload = new HashMap<>();
-        payload.put("firstName", "Dave");
-        payload.put("lastName", "Reeds");
-        payload.put("email", "somedude@devs.com");
-        payload.put("role", "Software Engineer");
-        payload.put("department", "Engineering");
-
-        given()
-                .log()
-                .all().contentType("application/json")
-                .body(payload)
-                .when()
-                .post("/api/add")
-                .then()
-                .statusCode(200)
-                .body("status", Matchers.is(true))
-                .body("message", Matchers.is("SUCCESS"))
-                .body("data.firstName", Matchers.is((String) payload.get("firstName")))
-                .body("data.lastName", Matchers.is((String) payload.get("lastName")));
-    }
-
-    @Test
-    public void when_a_parameter_is_not_parsed_fail() {
-
-        Map<String, Object> payload = new HashMap<>();
-        payload.put("firstName", "Dave");
-        payload.put("lastName", "Reeds");
-        payload.put("email", "somedude@devs.com");
-        payload.put("role", "Software Engineer");
+        ItemForm payload = new ItemForm();
+        payload.setName("Iphone X");
+        payload.setPrice(new BigDecimal("369"));
+        payload.setQuantity(34);
+        payload.setCategory("Electronics");
 
         given()
                 .log()
                 .all().contentType("application/json")
                 .body(payload)
                 .when()
-                .post("/api/add")
+                .post("/items/api/add")
                 .then()
-                .statusCode(400);
+                .statusCode(200)
+                .body("success", Matchers.is(true))
+                .body("message", Matchers.is("Item Created"))
+                .body("data.name", Matchers.is(payload.getName()))
+                .body("data.quantity", Matchers.is(payload.getQuantity()));
     }
 
     @Test
-    public void list_all_employees() {
+    public void test_deleteItem() {
+
         given()
                 .log()
                 .all().contentType("application/json")
                 .when()
-                .get("/api/all")
+                .get("/items/api/remove/" + item.getId())
                 .then()
                 .statusCode(200)
-                .body("status", Matchers.is(true));
+                .body("success", Matchers.is(true));
+    }
+
+    @Test
+    public void test_findByName() {
+        given()
+                .log()
+                .all().contentType("application/json")
+                .when()
+                .get("/items/api/find?name=" + item.getName())
+                .then()
+                .statusCode(200)
+                .body("success", Matchers.is(true))
+                .body("data.name", Matchers.is(item.getName()))
+                .body("data.quantity", Matchers.is(item.getQuantity()))
+                .body("message", Matchers.is("Item found"));
+    }
+
+    @Test
+    public void test_findByName_NotFound() {
+        given()
+                .log()
+                .all().contentType("application/json")
+                .when()
+                .get("/items/api/find?name=CK Shirt")
+                .then()
+                .statusCode(200)
+                .body("success", Matchers.is(true))
+                .body("message", Matchers.is("Item not found"));
+    }
+
+    @Test
+    public void test_findAll() {
+        given()
+                .log()
+                .all().contentType("application/json")
+                .when()
+                .get("/items/api/all")
+                .then()
+                .statusCode(200)
+                .body("success", Matchers.is(true))
+                .body("data", Matchers.hasSize(1));
     }
 }

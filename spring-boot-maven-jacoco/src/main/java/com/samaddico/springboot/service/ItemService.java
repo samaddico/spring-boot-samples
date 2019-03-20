@@ -9,7 +9,7 @@ public interface ItemService {
     public Item addItem(Item item);
     public List<Item> getAllItems();
     public void removeItem(Long id);
-    public List<Item> getAllItemsByCategory(String category);
     public Item getItemsByName(String name);
+    public void deleteAll();
 
 }

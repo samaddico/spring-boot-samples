@@ -44,7 +44,7 @@ public class ItemController {
         return response;
     }
 
-    @GetMapping(value = "/find/name")
+    @GetMapping(value = "/find")
     public JsonResponse findByName(@RequestParam("name") String name){
         Item item = itemService.getItemsByName(name);
         JsonResponse response = new JsonResponse();
@@ -54,17 +54,8 @@ public class ItemController {
         return response;
     }
 
-    @GetMapping(value = "/find/category")
-    public JsonResponse findByCategory(@RequestParam("category") String category){
-        List<Item> items = itemService.getAllItemsByCategory(category);
-        JsonResponse response = new JsonResponse();
-        response.setSuccess(true);
-        response.setData(items);
-        response.setMessage(items == null ? "Item not found" : "Item found");
-        return response;
-    }
 
-    @GetMapping(value = "/find/all")
+    @GetMapping(value = "/all")
     public JsonResponse getAll(){
         JsonResponse response = new JsonResponse();
         response.setSuccess(true);

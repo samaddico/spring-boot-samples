@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  tasks:
+    - name: install Docker-PY
+      pip:
+        name: "{{ item }}"
+      with_items:
+      - six==1.4
+      - docker-py==1.1.0
+
+    - name: Creating docker container
+      docker_container:
+        name: "{{ name }}"
+        hostname: "{{ name }}"
+        image: "{{image_name}}:{{image_tag}}"
+        state: started
+        expose:
+        - "{{exposed_port}}"
+        ports:
+        - "{{port}}"

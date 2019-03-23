@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spring-kubernetes-example
+data:
+  application.properties: |-
+    webservice.endpoint.transferfund=http://www.customer-service.app/api/tf
+    webservice.endpoint.getbalance=http://www.customer-service.app/api/balance
+    webservice.endpoint.customerinfo=http://www.customer-service.app/api/customerinfo

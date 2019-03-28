@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: spring-kubernetes-example
+  name: springboot-kubernetes-example
 data:
   application.properties: |-
     webservice.endpoint.transferfund=http://www.customer-service.app/api/tf

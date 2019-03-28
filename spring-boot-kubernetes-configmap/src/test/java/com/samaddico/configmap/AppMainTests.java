@@ -1,4 +1,4 @@
-package com.codeops.ushop.inventory;
+package com.samaddico.configmap;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Ignore
-public class UshopInventoryMainTests {
+public class AppMainTests {
 
     @Test
     public void contextLoads() {

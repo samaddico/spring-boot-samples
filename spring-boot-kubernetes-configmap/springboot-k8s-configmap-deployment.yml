@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: springboot-configmap-k8s
+  labels:
+    app: springboot-configmap-k8s
+    role: backend
+    stage: production
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-configmap-k8s
+      version: v0.0.1
+  template:
+    metadata:
+      labels:
+        app: springboot-configmap-k8s
+        version: v0.0.1
+    spec:
+      containers:
+        - name: springboot-configmap-k8s
+          image: saaddico/springboot-k8s-configmap:v3
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9000

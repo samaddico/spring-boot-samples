@@ -1,13 +1,13 @@
-package com.codeops.ushop.inventory;
+package com.samaddico.configmap;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UshopInventoryMain {
+public class AppMain {
 
     public static void main(String[] args) {
-        SpringApplication.run(UshopInventoryMain.class, args);
+        SpringApplication.run(AppMain.class, args);
     }
 
 }

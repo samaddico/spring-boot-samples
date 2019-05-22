@@ -1,6 +1,6 @@
 # Compiled class file
 *.class
-
+.idea/
 # Log file
 *.log
 
@@ -58,7 +58,6 @@ buildNumber.properties
 *.iws
 *.ipr
 nbaction.xml
-
-
+spring-boot-security-ldap/.idea/workspace.xml
 
 

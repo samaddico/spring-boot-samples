@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: test
+
+spring.config.import: vault://
+
+spring.cloud.vault:
+  host: localhost
+  port: 8200
+  scheme: http
+  uri: http://localhost:8200
+  connection-timeout: 5000
+  read-timeout: 15000
+  token: s.nOdqeCj1FESmCY0t8MZkj9c0
+  authentication: KUBERNETES
+  kubernetes:
+    role: test
+
+api:
+  key: ${user.auth.key}
+  token: ${user.auth.token}

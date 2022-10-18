@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-actuator-app
+spec:
+  selector:
+    matchLabels:
+      app: spring-boot-actuator-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: spring-boot-actuator-app
+    spec:
+      containers:
+        - name: spring-boot-actuator-app
+          image: spring-boot-actuator-app:0.0.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 3

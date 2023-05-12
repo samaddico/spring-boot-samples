@@ -1,0 +1,6 @@
+# expose necessary actuator endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus,metrics
